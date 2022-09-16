@@ -10845,6 +10845,12 @@ article.article .content blockquote.pullquote {
   font-size: 1.15rem;
   position: relative;
 }
+article.article .content blockquote.pullquote {
+  clear: both;
+  width: 100%;
+  font-size: 1.15rem;
+  position: static;
+}
 article.article .content blockquote footer strong + cite {
   margin-left: 0.5em;
 }
