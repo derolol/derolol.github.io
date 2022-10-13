@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>高级计算机网络3 - Lolored Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Lolored Blog"><meta name="msapplication-TileImage" content="/images/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Lolored Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="IPv6协议的编址和分组"><meta property="og:type" content="blog"><meta property="og:title" content="高级计算机网络3"><meta property="og:url" content="http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/"><meta property="og:site_name" content="Lolored Blog"><meta property="og:description" content="IPv6协议的编址和分组"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/alive.jpg"><meta property="og:image" content="http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/group.jpg"><meta property="article:published_time" content="2022-09-29T06:00:11.000Z"><meta property="article:modified_time" content="2022-09-29T08:27:25.072Z"><meta property="article:author" content="derolol"><meta property="article:tag" content="研究生"><meta property="article:tag" content="课堂笔记"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/alive.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/"},"headline":"高级计算机网络3","image":["http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/alive.jpg","http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/group.jpg"],"datePublished":"2022-09-29T06:00:11.000Z","dateModified":"2022-09-29T08:27:25.072Z","author":{"@type":"Person","name":"derolol"},"publisher":{"@type":"Organization","name":"Lolored Blog","logo":{"@type":"ImageObject","url":{"text":"Lolored Blog"}}},"description":"IPv6协议的编址和分组"}</script><link rel="canonical" href="http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/"><link rel="icon" href="/images/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-cave-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>高级计算机网络3 - Lolored Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Lolored Blog"><meta name="msapplication-TileImage" content="/images/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Lolored Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="IPv6协议的编址和分组"><meta property="og:type" content="blog"><meta property="og:title" content="高级计算机网络3"><meta property="og:url" content="http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/"><meta property="og:site_name" content="Lolored Blog"><meta property="og:description" content="IPv6协议的编址和分组"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/alive.jpg"><meta property="og:image" content="http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/group.jpg"><meta property="article:published_time" content="2022-09-29T06:00:11.000Z"><meta property="article:modified_time" content="2022-10-13T08:06:50.755Z"><meta property="article:author" content="derolol"><meta property="article:tag" content="研究生"><meta property="article:tag" content="课堂笔记"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/alive.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/"},"headline":"高级计算机网络3","image":["http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/alive.jpg","http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/group.jpg"],"datePublished":"2022-09-29T06:00:11.000Z","dateModified":"2022-10-13T08:06:50.755Z","author":{"@type":"Person","name":"derolol"},"publisher":{"@type":"Organization","name":"Lolored Blog","logo":{"@type":"ImageObject","url":{"text":"Lolored Blog"}}},"description":"IPv6协议的编址和分组"}</script><link rel="canonical" href="http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/"><link rel="icon" href="/images/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atelier-cave-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
   (function () {
       function switchTab() {
           if (!location.hash) {
@@ -28,7 +28,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Lolored Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Watch on GitHub" href="https://github.com/derolol/derolol.github.io"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-09-29T06:00:11.000Z" title="2022/9/29 下午2:00:11">2022-09-29</time>发表</span><span class="level-item"><time dateTime="2022-09-29T08:27:25.072Z" title="2022/9/29 下午4:27:25">2022-09-29</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span> / </span><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a><span> / </span><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">高级计算机网络</a></span><span class="level-item">9 分钟读完 (大约1298个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">高级计算机网络3</h1><div class="content"><h1 id="IPv6-编址"><a href="#IPv6-编址" class="headerlink" title="IPv6 编址"></a>IPv6 编址</h1><h2 id="全球单播-IPv6-地址配置"><a href="#全球单播-IPv6-地址配置" class="headerlink" title="全球单播 IPv6 地址配置"></a>全球单播 IPv6 地址配置</h2><ul>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Lolored Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Watch on GitHub" href="https://github.com/derolol/derolol.github.io"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-09-29T06:00:11.000Z" title="2022/9/29 下午2:00:11">2022-09-29</time>发表</span><span class="level-item"><time dateTime="2022-10-13T08:06:50.755Z" title="2022/10/13 下午4:06:50">2022-10-13</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span> / </span><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a><span> / </span><a class="link-muted" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">高级计算机网络</a></span><span class="level-item">15 分钟读完 (大约2299个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">高级计算机网络3</h1><div class="content"><h1 id="IPv6-编址"><a href="#IPv6-编址" class="headerlink" title="IPv6 编址"></a>IPv6 编址</h1><h2 id="全球单播-IPv6-地址配置"><a href="#全球单播-IPv6-地址配置" class="headerlink" title="全球单播 IPv6 地址配置"></a>全球单播 IPv6 地址配置</h2><ul>
 <li>手工配置</li>
 <li>无状态地址自动配置</li>
 <li>有状态地址自动配置 DHCPv6</li>
@@ -240,7 +240,7 @@
 <li>IPv4 的子网划分是管理地址稀缺性</li>
 <li>IPv6 子网划分是分局路由器的数量及他们所支持的网络来构建<strong>寻址分层结构</strong></li>
 </ul>
-<h1 id="IPv6-分组"><a href="#IPv6-分组" class="headerlink" title="IPv6 分组"></a>IPv6 分组</h1><h2 id="一般格式"><a href="#一般格式" class="headerlink" title="一般格式"></a>一般格式</h2><ul>
+<h1 id="IPv6-分组格式"><a href="#IPv6-分组格式" class="headerlink" title="IPv6 分组格式"></a>IPv6 分组格式</h1><h2 id="一般格式"><a href="#一般格式" class="headerlink" title="一般格式"></a>一般格式</h2><ul>
 <li><p>分组构成</p>
 <img src="/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/group.jpg" class="" title="这是一张图片">
 
@@ -268,7 +268,268 @@
 </ul>
 </li>
 </ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>高级计算机网络3</p><p><a href="http://blog.lolored.com/2022/09/29/高级计算机网络3/">http://blog.lolored.com/2022/09/29/高级计算机网络3/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>derolol</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2022-09-29</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2022-09-29</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Watch on GitHub" href="https://github.com/derolol/derolol.github.io"><i class="icon fab fa-github"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</a><a class="link-muted mr-2" rel="tag" href="/tags/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=632320b1a4cf5e001279bacb&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/09/25/%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB3/"><span class="level-item">知识分享3</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+<h1 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6 +"></a>IPv6 +</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li><p>基于 IPv6 下一代互联网的全面升级</p>
+<ul>
+<li>万物互联到万物智联</li>
+<li>由消费互联网向产业互联网升级</li>
+</ul>
+</li>
+<li><p>内容</p>
+<ul>
+<li><p>协议创新</p>
+<p>SRv6、网络切片、随流检测、新型组播等</p>
+</li>
+<li><p>网络智能化技术创新</p>
+</li>
+</ul>
+</li>
+<li><p>拓展内容</p>
+<ul>
+<li><p>郭贺铨院士谈以 IPv6+赋能智能云网</p>
+<ul>
+<li>高带宽</li>
+<li>确定性</li>
+<li>低时延</li>
+<li>安全</li>
+</ul>
+</li>
+<li><p>华为</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="内容介绍"><a href="#内容介绍" class="headerlink" title="内容介绍"></a>内容介绍</h2><ul>
+<li><p>网络切片</p>
+<ul>
+<li><p>在一张物理网络上提供多张逻辑网络（切片）</p>
+<p>满足网络隔离需求并提供服务质量保证</p>
+</li>
+<li><p>每个网络切片可自定义逻辑拓扑、SLA 需求、可靠性安全和安全等级</p>
+</li>
+</ul>
+</li>
+<li><p>新型组播</p>
+<ul>
+<li>BIERv6</li>
+<li>采用了目的选项扩展头 DOH 来携带组播信息</li>
+</ul>
+</li>
+</ul>
+<h2 id="最大优势"><a href="#最大优势" class="headerlink" title="最大优势"></a>最大优势</h2><ul>
+<li>完全基于原始的 IPv6，无需单独部署网络，几乎利用 IPv6 的扩展头完成</li>
+<li>由<strong>中国标准</strong>作为技术创新交流与标准制定的<strong>基础平台</strong></li>
+</ul>
+<h1 id="IPv6-的姊妹协议"><a href="#IPv6-的姊妹协议" class="headerlink" title="IPv6 的姊妹协议"></a>IPv6 的姊妹协议</h1><h2 id="ICMPv6"><a href="#ICMPv6" class="headerlink" title="ICMPv6"></a>ICMPv6</h2><ul>
+<li>主要用于网络检测</li>
+</ul>
+<h3 id="与-ICMPv4-的对比"><a href="#与-ICMPv4-的对比" class="headerlink" title="与 ICMPv4 的对比"></a>与 ICMPv4 的对比</h3><ul>
+<li><p>保留了 v4 常用的功能</p>
+<ul>
+<li>回声请求、抑制消息、重定向、参数错误等<ul>
+<li>ping、traceroute</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>扩展（ARP、IGMP）</p>
+<ul>
+<li>邻居发现</li>
+<li>无状态地址配置</li>
+<li>路径 MTU 发现（PMTU）</li>
+</ul>
+</li>
+</ul>
+<h3 id="ICMPv6-概述"><a href="#ICMPv6-概述" class="headerlink" title="ICMPv6 概述"></a>ICMPv6 概述</h3><ul>
+<li>报文类型</li>
+</ul>
+<article class="message is-primary">
+        <div class="message-header"><p>差错报文</p>
+</div>
+        <div class="message-body">
+            <ul>
+<li>目标不可达</li>
+<li>数据包超长</li>
+<li>超时</li>
+<li>参数问题</li>
+</ul>
+
+        </div>
+    </article>
+
+<article class="message is-primary">
+        <div class="message-header"><p>信息报文</p>
+</div>
+        <div class="message-body">
+            <ul>
+<li>MLD（组播侦听发现）</li>
+<li>NDP（ARP、redirect）</li>
+<li>回声请求和应答</li>
+</ul>
+
+        </div>
+    </article>
+
+<h3 id="ICMPv6-的一般格式"><a href="#ICMPv6-的一般格式" class="headerlink" title="ICMPv6 的一般格式"></a>ICMPv6 的一般格式</h3><ul>
+<li><p>差错报文</p>
+</li>
+<li><p>信息报文</p>
+</li>
+</ul>
+<h3 id="ICMPv6-的应用"><a href="#ICMPv6-的应用" class="headerlink" title="ICMPv6 的应用"></a>ICMPv6 的应用</h3><ul>
+<li><p>ping</p>
+</li>
+<li><p>tracert</p>
+<ul>
+<li>获取路径上经过的路由器</li>
+<li>有最大跳数限制</li>
+</ul>
+</li>
+<li><p>PMTU 发现</p>
+<ul>
+<li><p>背景</p>
+<ul>
+<li>MTU 最大传输单元</li>
+<li>IPv6 要求源节点（发送方）必须在发送数据前知道整个传送路径的最小 MTU</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="IPv6-路由"><a href="#IPv6-路由" class="headerlink" title="IPv6 路由"></a>IPv6 路由</h1><h2 id="IPv6-的数据路由"><a href="#IPv6-的数据路由" class="headerlink" title="IPv6 的数据路由"></a>IPv6 的数据路由</h2><ul>
+<li>on-link 源机和目的机在同一链路的数据转发</li>
+<li>off-link 源机和目的机不在同一链路的数据转发</li>
+</ul>
+<h3 id="源机和目的机在同一链路的数据转发"><a href="#源机和目的机在同一链路的数据转发" class="headerlink" title="源机和目的机在同一链路的数据转发"></a>源机和目的机在同一链路的数据转发</h3><ul>
+<li><p>通过地址前缀判断是否位于同一链路</p>
+</li>
+<li><p>发起地址解析</p>
+<ul>
+<li>独立于媒体层</li>
+<li>利用三层安全机制</li>
+<li>广播变为组播，降低骚扰范围</li>
+</ul>
+</li>
+<li><p>由 NDP 协议完成</p>
+</li>
+</ul>
+<h3 id="NDP-Neightbor-Discover-protocol"><a href="#NDP-Neightbor-Discover-protocol" class="headerlink" title="NDP(Neightbor Discover protocol)"></a>NDP(Neightbor Discover protocol)</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><ul>
+<li>邻居发现协议</li>
+</ul>
+<h4 id="NDP-报文"><a href="#NDP-报文" class="headerlink" title="NDP 报文"></a>NDP 报文</h4><ul>
+<li>使用 ICMPv6 报文承载</li>
+</ul>
+<h4 id="IPv6-地址解析-替代-ARP"><a href="#IPv6-地址解析-替代-ARP" class="headerlink" title="IPv6 地址解析(替代 ARP)"></a>IPv6 地址解析(替代 ARP)</h4><ul>
+<li><p>查找邻居缓存表，无记录则开始地址解析</p>
+</li>
+<li><p>源主机发送<strong>组播</strong> NS 报文</p>
+</li>
+<li><p>目标主机<strong>单播</strong>发送 NA 报文</p>
+</li>
+</ul>
+<article class="message is-primary">
+        <div class="message-header"><p>邻居缓存表</p>
+</div>
+        <div class="message-body">
+            <ul>
+<li>最近访问邻居记录</li>
+<li>不可达检测</li>
+</ul>
+
+        </div>
+    </article>
+
+<h4 id="无状态地址自动配置"><a href="#无状态地址自动配置" class="headerlink" title="无状态地址自动配置"></a>无状态地址自动配置</h4><h4 id="路由器重定向"><a href="#路由器重定向" class="headerlink" title="路由器重定向"></a>路由器重定向</h4><ul>
+<li>发现更好的下一跳</li>
+</ul>
+<h3 id="源机和目的机不在同一链路的数据转发"><a href="#源机和目的机不在同一链路的数据转发" class="headerlink" title="源机和目的机不在同一链路的数据转发"></a>源机和目的机不在同一链路的数据转发</h3><h4 id="目的缓存表-DestinationCache"><a href="#目的缓存表-DestinationCache" class="headerlink" title="目的缓存表 DestinationCache"></a>目的缓存表 DestinationCache</h4><h4 id="主机-路由器"><a href="#主机-路由器" class="headerlink" title="主机 - 路由器"></a>主机 - 路由器</h4><h4 id="路由器-路由器"><a href="#路由器-路由器" class="headerlink" title="路由器 - 路由器"></a>路由器 - 路由器</h4><ul>
+<li><p>核心</p>
+<p>路由表</p>
+</li>
+<li><p>分类</p>
+<ul>
+<li><p>直连路由</p>
+</li>
+<li><p>静态路由</p>
+</li>
+<li><p>动态路由</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="动态路由协议"><a href="#动态路由协议" class="headerlink" title="动态路由协议"></a>动态路由协议</h4><ul>
+<li><p>内部网关协议</p>
+<ul>
+<li><p>距离矢量 DV 路由选择协议</p>
+<ul>
+<li>RIPng</li>
+</ul>
+</li>
+<li><p>链路状态 LS 路由选择协议</p>
+<ul>
+<li>OSPFv3</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>边界网关协议</p>
+<ul>
+<li>BGP4+</li>
+</ul>
+</li>
+</ul>
+<h4 id="RIPng"><a href="#RIPng" class="headerlink" title="RIPng"></a>RIPng</h4><ul>
+<li><p>通过跳数衡量距离</p>
+</li>
+<li><p>组播代替广播</p>
+</li>
+<li><p>下一跳信息由单独的 R Table Entry 表示</p>
+</li>
+<li><p>由 IPv6 本身保证安全</p>
+</li>
+<li><p>只用于 IP 网络</p>
+</li>
+</ul>
+<h4 id="OSPFv3"><a href="#OSPFv3" class="headerlink" title="OSPFv3"></a>OSPFv3</h4><ul>
+<li><p>工作原理</p>
+<ul>
+<li><p>采用链路状态数据库</p>
+</li>
+<li><p>与邻接路由器同步</p>
+</li>
+<li><p>DR 选举、SPF 算法、area 区域支持</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="IPv6-过渡技术"><a href="#IPv6-过渡技术" class="headerlink" title="IPv6 过渡技术"></a>IPv6 过渡技术</h1><h2 id="共存技术"><a href="#共存技术" class="headerlink" title="共存技术"></a>共存技术</h2><ul>
+<li><p>双栈</p>
+<p>设备上同时运行</p>
+</li>
+<li><p>隧道</p>
+<p>IPv6 网络上承载 IPv4 分组</p>
+</li>
+<li><p>翻译或转换</p>
+<p>地址、分组、端口的转换</p>
+</li>
+</ul>
+<h2 id="双栈技术"><a href="#双栈技术" class="headerlink" title="双栈技术"></a>双栈技术</h2><ul>
+<li><p>没有解决地址耗尽的问题</p>
+</li>
+<li><p>使用优先级 Happy eyeballs(Fast Fallback)</p>
+</li>
+</ul>
+<h2 id="隧道技术"><a href="#隧道技术" class="headerlink" title="隧道技术"></a>隧道技术</h2><ul>
+<li><p>手动隧道</p>
+</li>
+<li><p>自动隧道</p>
+<p>创建和拆除依赖当前网络条件</p>
+</li>
+<li><p>重点</p>
+<p>确定隧道的入口和出口（封装的增加和拆除）</p>
+</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><div class="article-licensing box"><div class="licensing-title"><p>高级计算机网络3</p><p><a href="http://blog.lolored.com/2022/09/29/高级计算机网络3/">http://blog.lolored.com/2022/09/29/高级计算机网络3/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>derolol</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2022-09-29</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2022-10-13</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Watch on GitHub" href="https://github.com/derolol/derolol.github.io"><i class="icon fab fa-github"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</a><a class="link-muted mr-2" rel="tag" href="/tags/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a></div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=632320b1a4cf5e001279bacb&amp;product=inline-share-buttons" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/10/13/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C4/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">高级计算机网络4</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/09/25/%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB3/"><span class="level-item">知识分享3</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
             this.page.url = 'http://blog.lolored.com/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/';
             this.page.identifier = '2022/09/29/高级计算机网络3/';
         };
@@ -277,7 +538,7 @@
             s.src = '//' + 'lolored-blog' + '.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
-        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/favicon.png" alt="Lolored"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Lolored</p><p class="is-size-6 is-block">Play with programs</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>花园, 猫薄荷</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">9</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">5</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/derolol" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/derolol"><i class="fab fa-github"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-09-29T06:00:11.000Z">2022-09-29</time></p><p class="title"><a href="/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/">高级计算机网络3</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">高级计算机网络</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-09-24T17:26:54.000Z">2022-09-25</time></p><p class="title"><a href="/2022/09/25/%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB3/">知识分享3</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3/">个人文档</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-09-23T10:38:03.000Z">2022-09-23</time></p><p class="title"><a href="/2022/09/23/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF2/">高性能计算技术2</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF/">高性能计算技术</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-09-22T06:00:45.000Z">2022-09-22</time></p><p class="title"><a href="/2022/09/22/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C2/">高级计算机网络2</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">高级计算机网络</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-09-20T00:49:28.000Z">2022-09-20</time></p><p class="title"><a href="/2022/09/20/%E4%B8%AD%E7%89%B91/">中特1</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E4%B8%AD%E7%89%B9/">中特</a></p></div></article></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3/"><span class="tag">个人文档</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"><span class="tag">实验室</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/"><span class="tag">研究生</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/"><span class="tag">课堂笔记</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B5%84%E6%96%99/"><span class="tag">资料</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3/"><span class="level-start"><span class="level-item">个人文档</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">学习</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">课堂笔记</span></span><span class="level-end"><span class="level-item tag">6</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E4%B8%AD%E7%89%B9/"><span class="level-start"><span class="level-item">中特</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">高性能计算技术</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="level-start"><span class="level-item">高级计算机网络</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%B5%84%E6%96%99/"><span class="level-start"><span class="level-item">资料</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li><li><a class="level is-mobile" href="https://ppoffice.github.io/hexo-theme-icarus/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Icarus</span></span><span class="level-right"><span class="level-item tag">ppoffice.github.io</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc" style=""><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#IPv6-编址"><span class="level-left"><span class="level-item">1</span><span class="level-item">IPv6 编址</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#全球单播-IPv6-地址配置"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">全球单播 IPv6 地址配置</span></span></a></li><li><a class="level is-mobile" href="#无状态地址自动配置-SLAAC"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">无状态地址自动配置(SLAAC)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#路由器发现实例"><span class="level-left"><span class="level-item">1.2.1</span><span class="level-item">路由器发现实例</span></span></a></li><li><a class="level is-mobile" href="#DAD-Duplicate-Address-Detection"><span class="level-left"><span class="level-item">1.2.2</span><span class="level-item">DAD(Duplicate Address Detection)</span></span></a></li><li><a class="level is-mobile" href="#DAD-实例"><span class="level-left"><span class="level-item">1.2.3</span><span class="level-item">DAD 实例</span></span></a></li><li><a class="level is-mobile" href="#前缀重新编址"><span class="level-left"><span class="level-item">1.2.4</span><span class="level-item">前缀重新编址</span></span></a></li></ul></li><li><a class="level is-mobile" href="#有状态地址自动配置-DHCPv6"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">有状态地址自动配置(DHCPv6)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#背景"><span class="level-left"><span class="level-item">1.3.1</span><span class="level-item">背景</span></span></a></li><li><a class="level is-mobile" href="#一般特点"><span class="level-left"><span class="level-item">1.3.2</span><span class="level-item">一般特点</span></span></a></li><li><a class="level is-mobile" href="#DHCPv6-的快速地址配置"><span class="level-left"><span class="level-item">1.3.3</span><span class="level-item">DHCPv6 的快速地址配置</span></span></a></li><li><a class="level is-mobile" href="#DHCPv6-的重配置机制"><span class="level-left"><span class="level-item">1.3.4</span><span class="level-item">DHCPv6 的重配置机制</span></span></a></li><li><a class="level is-mobile" href="#DHCPv6-报文"><span class="level-left"><span class="level-item">1.3.5</span><span class="level-item">DHCPv6 报文</span></span></a></li></ul></li><li><a class="level is-mobile" href="#自动地址配置"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">自动地址配置</span></span></a></li><li><a class="level is-mobile" href="#IPv6-地址子网规划"><span class="level-left"><span class="level-item">1.5</span><span class="level-item">IPv6 地址子网规划</span></span></a></li></ul></li><li><a class="level is-mobile" href="#IPv6-分组"><span class="level-left"><span class="level-item">2</span><span class="level-item">IPv6 分组</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一般格式"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">一般格式</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Lolored Blog</a><p class="is-size-7"><span>&copy; 2022 derolol</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Watch on GitHub" href="https://github.com/derolol/derolol.github.io"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/favicon.png" alt="Lolored"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Lolored</p><p class="is-size-6 is-block">Play with programs</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>花园, 猫薄荷</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">10</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">7</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">5</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/derolol" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/derolol"><i class="fab fa-github"></i></a></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-10-12T21:55:19.000Z">2022-10-13</time></p><p class="title"><a href="/2022/10/13/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C4/">高级计算机网络4</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">高级计算机网络</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-09-29T06:00:11.000Z">2022-09-29</time></p><p class="title"><a href="/2022/09/29/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3/">高级计算机网络3</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">高级计算机网络</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-09-24T17:26:54.000Z">2022-09-25</time></p><p class="title"><a href="/2022/09/25/%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB3/">知识分享3</a></p><p class="categories"><a href="/categories/%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3/">个人文档</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-09-23T10:38:03.000Z">2022-09-23</time></p><p class="title"><a href="/2022/09/23/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF2/">高性能计算技术2</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF/">高性能计算技术</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-09-22T06:00:45.000Z">2022-09-22</time></p><p class="title"><a href="/2022/09/22/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C2/">高级计算机网络2</a></p><p class="categories"><a href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/">课堂笔记</a> / <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">高级计算机网络</a></p></div></article></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3/"><span class="tag">个人文档</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4/"><span class="tag">实验室</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/"><span class="tag">研究生</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/"><span class="tag">课堂笔记</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%B5%84%E6%96%99/"><span class="tag">资料</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/%E4%B8%AA%E4%BA%BA%E6%96%87%E6%A1%A3/"><span class="level-start"><span class="level-item">个人文档</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/"><span class="level-start"><span class="level-item">学习</span></span><span class="level-end"><span class="level-item tag">8</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/"><span class="level-start"><span class="level-item">课堂笔记</span></span><span class="level-end"><span class="level-item tag">7</span></span></a><ul><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E4%B8%AD%E7%89%B9/"><span class="level-start"><span class="level-item">中特</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">高性能计算技术</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/%E9%AB%98%E7%BA%A7%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><span class="level-start"><span class="level-item">高级计算机网络</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/%E5%AD%A6%E4%B9%A0/%E8%B5%84%E6%96%99/"><span class="level-start"><span class="level-item">资料</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li></ul></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li><li><a class="level is-mobile" href="https://ppoffice.github.io/hexo-theme-icarus/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Icarus</span></span><span class="level-right"><span class="level-item tag">ppoffice.github.io</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc" style=""><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#IPv6-编址"><span class="level-left"><span class="level-item">1</span><span class="level-item">IPv6 编址</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#全球单播-IPv6-地址配置"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">全球单播 IPv6 地址配置</span></span></a></li><li><a class="level is-mobile" href="#无状态地址自动配置-SLAAC"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">无状态地址自动配置(SLAAC)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#路由器发现实例"><span class="level-left"><span class="level-item">1.2.1</span><span class="level-item">路由器发现实例</span></span></a></li><li><a class="level is-mobile" href="#DAD-Duplicate-Address-Detection"><span class="level-left"><span class="level-item">1.2.2</span><span class="level-item">DAD(Duplicate Address Detection)</span></span></a></li><li><a class="level is-mobile" href="#DAD-实例"><span class="level-left"><span class="level-item">1.2.3</span><span class="level-item">DAD 实例</span></span></a></li><li><a class="level is-mobile" href="#前缀重新编址"><span class="level-left"><span class="level-item">1.2.4</span><span class="level-item">前缀重新编址</span></span></a></li></ul></li><li><a class="level is-mobile" href="#有状态地址自动配置-DHCPv6"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">有状态地址自动配置(DHCPv6)</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#背景"><span class="level-left"><span class="level-item">1.3.1</span><span class="level-item">背景</span></span></a></li><li><a class="level is-mobile" href="#一般特点"><span class="level-left"><span class="level-item">1.3.2</span><span class="level-item">一般特点</span></span></a></li><li><a class="level is-mobile" href="#DHCPv6-的快速地址配置"><span class="level-left"><span class="level-item">1.3.3</span><span class="level-item">DHCPv6 的快速地址配置</span></span></a></li><li><a class="level is-mobile" href="#DHCPv6-的重配置机制"><span class="level-left"><span class="level-item">1.3.4</span><span class="level-item">DHCPv6 的重配置机制</span></span></a></li><li><a class="level is-mobile" href="#DHCPv6-报文"><span class="level-left"><span class="level-item">1.3.5</span><span class="level-item">DHCPv6 报文</span></span></a></li></ul></li><li><a class="level is-mobile" href="#自动地址配置"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">自动地址配置</span></span></a></li><li><a class="level is-mobile" href="#IPv6-地址子网规划"><span class="level-left"><span class="level-item">1.5</span><span class="level-item">IPv6 地址子网规划</span></span></a></li></ul></li><li><a class="level is-mobile" href="#IPv6-分组格式"><span class="level-left"><span class="level-item">2</span><span class="level-item">IPv6 分组格式</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一般格式"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">一般格式</span></span></a></li></ul></li><li><a class="level is-mobile" href="#IPv6"><span class="level-left"><span class="level-item">3</span><span class="level-item">IPv6 +</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#概述"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">概述</span></span></a></li><li><a class="level is-mobile" href="#内容介绍"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">内容介绍</span></span></a></li><li><a class="level is-mobile" href="#最大优势"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">最大优势</span></span></a></li></ul></li><li><a class="level is-mobile" href="#IPv6-的姊妹协议"><span class="level-left"><span class="level-item">4</span><span class="level-item">IPv6 的姊妹协议</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#ICMPv6"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">ICMPv6</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#与-ICMPv4-的对比"><span class="level-left"><span class="level-item">4.1.1</span><span class="level-item">与 ICMPv4 的对比</span></span></a></li><li><a class="level is-mobile" href="#ICMPv6-概述"><span class="level-left"><span class="level-item">4.1.2</span><span class="level-item">ICMPv6 概述</span></span></a></li><li><a class="level is-mobile" href="#ICMPv6-的一般格式"><span class="level-left"><span class="level-item">4.1.3</span><span class="level-item">ICMPv6 的一般格式</span></span></a></li><li><a class="level is-mobile" href="#ICMPv6-的应用"><span class="level-left"><span class="level-item">4.1.4</span><span class="level-item">ICMPv6 的应用</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#IPv6-路由"><span class="level-left"><span class="level-item">5</span><span class="level-item">IPv6 路由</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#IPv6-的数据路由"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">IPv6 的数据路由</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#源机和目的机在同一链路的数据转发"><span class="level-left"><span class="level-item">5.1.1</span><span class="level-item">源机和目的机在同一链路的数据转发</span></span></a></li><li><a class="level is-mobile" href="#NDP-Neightbor-Discover-protocol"><span class="level-left"><span class="level-item">5.1.2</span><span class="level-item">NDP(Neightbor Discover protocol)</span></span></a></li><li><a class="level is-mobile" href="#源机和目的机不在同一链路的数据转发"><span class="level-left"><span class="level-item">5.1.3</span><span class="level-item">源机和目的机不在同一链路的数据转发</span></span></a></li></ul></li></ul></li><li><a class="level is-mobile" href="#IPv6-过渡技术"><span class="level-left"><span class="level-item">6</span><span class="level-item">IPv6 过渡技术</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#共存技术"><span class="level-left"><span class="level-item">6.1</span><span class="level-item">共存技术</span></span></a></li><li><a class="level is-mobile" href="#双栈技术"><span class="level-left"><span class="level-item">6.2</span><span class="level-item">双栈技术</span></span></a></li><li><a class="level is-mobile" href="#隧道技术"><span class="level-left"><span class="level-item">6.3</span><span class="level-item">隧道技术</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Lolored Blog</a><p class="is-size-7"><span>&copy; 2022 derolol</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Watch on GitHub" href="https://github.com/derolol/derolol.github.io"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
