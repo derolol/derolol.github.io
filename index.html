@@ -141,7 +141,110 @@ mjx-container[display="true"] {
 mjx-container[display="true"] + br {
   display: none;
 }
-</style></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Derolol Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-07-01T12:43:11.000Z" title="2024/7/1 下午8:43:11">2024-07-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-07-01T12:43:11.000Z" title="2024/7/1 下午8:43:11">2024-07-01</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/07/01/knowledge/semantic-segmentation/">semantic-segmentation</a></p><div class="content"><blockquote>
+</style></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="Derolol Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-07-10T16:19:30.000Z" title="2024/7/11 上午12:19:30">2024-07-11</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-07-10T16:19:30.000Z" title="2024/7/11 上午12:19:30">2024-07-11</time></span><span class="level-item"><a class="link-muted" href="/categories/algorithm/">algorithm</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/07/11/algorithm/product-except-self/">leetcode238 除自身以外数组的乘积</a></p><div class="content"><h2 id="题目">题目</h2>
+<p>给你一个整数数组 nums，返回 数组 answer ，其中 answer[i] 等于 nums
+中除 nums[i] 之外其余各元素的乘积 。 题目数据 保证 数组 nums
+之中任意元素的全部前缀元素和后缀的乘积都在 32 位 整数范围内。
+请不要使用除法，且在 O(n) 时间复杂度内完成此题。</p>
+<h2 id="题解">题解</h2>
+<p>正反向前缀积，使用中间变量记录累积</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">productExceptSelf</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>{</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ret</span><span class="params">(nums.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> mul = nums[<span class="number">0</span>];</span><br><span class="line">        ret[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; nums.<span class="built_in">size</span>(); i ++) {</span><br><span class="line">            ret[i] = mul;</span><br><span class="line">            mul *= nums[i];</span><br><span class="line">        }</span><br><span class="line">        mul = nums[nums.<span class="built_in">size</span>() - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = nums.<span class="built_in">size</span>() - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i --) {</span><br><span class="line">            ret[i] *= mul;</span><br><span class="line">            mul *= nums[i];</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-07-09T02:57:35.000Z" title="2024/7/9 上午10:57:35">2024-07-09</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-07-09T02:57:35.000Z" title="2024/7/9 上午10:57:35">2024-07-09</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/07/09/knowledge/ai-agent/">人工智能代理（Artificial Intelligence Agent）</a></p><div class="content"><blockquote>
+<p><a href="https://cloud.tencent.com/developer/tools/blog-entry?target=https%3A%2F%2Fwww.oschina.net%2Faction%2FGoToLink%3Furl%3Dhttps%253A%252F%252Flink.zhihu.com%252F%253Ftarget%253Dhttp%25253A%252F%252Fmp.weixin.qq.com%252Fs%25253F__biz%25253DMzkyNTI3NTY1Ng%25253D%25253D%252526mid%25253D2247496271%252526idx%25253D1%252526sn%25253Dd966e2ae1cb9acb42e34037b274c2b32%252526chksm%25253Dc1cbb128f6bc383efba57b43d8d4959f93b9e2ddddafa34f7aca48b15da6778c42aec2e28c1b%252526scene%25253D21%252523wechat_redirect&amp;source=article&amp;objectId=2423980">AI
+Agent深度解析：潜力与挑战并存的智能新世界</a></p>
+</blockquote>
+<h2 id="定义">定义</h2>
+<p>感知环境、进行决策和执行动作的智能实体</p>
+<h2 id="应用">应用</h2>
+<ul>
+<li>ABI/GBI生成式BI或是数据分析</li>
+<li>Code Agent代码助手</li>
+<li>基于RAG技术的知识问答</li>
+</ul>
+<h3 id="coding-agent">Coding Agent</h3>
+<h4 id="aixcoder-代码大模型在企业的应用实践">aiXcoder
+代码大模型在企业的应用实践</h4>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://qcon.infoq.cn/2023/shanghai/presentation/5683">PPT</a></p>
+</blockquote>
+<ul>
+<li><p>语言模型发展历程</p>
+<ul>
+<li>深度神经网络</li>
+<li>预训练模型</li>
+<li>大语言模型 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.03374">论文</a></li>
+</ul></li>
+<li><p>aiXcoder构建</p>
+<ul>
+<li>训练数据收集与筛选
+<ul>
+<li>Github数据爬取与过滤</li>
+<li>删除低质量项目</li>
+<li>相似算法去重</li>
+<li>去除敏感数据</li>
+<li>去除注释数据</li>
+<li>删除语法错误代码</li>
+<li>删除静态分析缺陷代码</li>
+<li>代码文件顺序重排</li>
+</ul></li>
+<li>训练
+<ul>
+<li>任务 随机Mask抽象语法树节点</li>
+<li>存在问题 项目级代码生成下的长序列依赖</li>
+</ul></li>
+<li>测试 更符合真实场景的测评集</li>
+</ul></li>
+</ul>
+<h4 id="基于codefuse的下一代研发探索">基于CodeFuse的下一代研发探索</h4>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://qcon.infoq.cn/2023/shanghai/presentation/5681">PPT</a> <a target="_blank" rel="noopener" href="https://github.com/codefuse-ai">Github</a></p>
+</blockquote>
+<ul>
+<li>数据来源
+<ul>
+<li>Github</li>
+</ul></li>
+<li>预训练&amp;微调</li>
+<li>推理加速&amp;部署</li>
+<li>发展
+<ul>
+<li>仓库级代码</li>
+</ul></li>
+</ul>
+<h4 id="大模型落地到代码助手场景的探索实践">大模型落地到代码助手场景的探索实践</h4>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://qcon.infoq.cn/2023/shanghai/presentation/5690">PPT</a></p>
+</blockquote>
+<ul>
+<li>百度大模型驱动下的智能代码助手提效实践
+https://qcon.infoq.cn/2023/shanghai/presentation/5679</li>
+</ul>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-07-09T02:37:34.000Z" title="2024/7/9 上午10:37:34">2024-07-09</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-07-09T02:37:34.000Z" title="2024/7/9 上午10:37:34">2024-07-09</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/07/09/knowledge/rag/">RAG技术</a></p><div class="content"><blockquote>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2423980">深度解析RAG技术在大模型时代的原理与实践</a></p>
+</blockquote>
+<h2 id="概念">概念</h2>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-07-08T09:35:04.000Z" title="2024/7/8 下午5:35:04">2024-07-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-07-08T09:35:04.000Z" title="2024/7/8 下午5:35:04">2024-07-08</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/07/08/hexo/basic/">Hexo操作</a></p><div class="content"><h2 id="hexo在子目录中新建文章">Hexo在子目录中新建文章</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] -p path/&lt;title&gt;</span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-07-08T09:34:33.000Z" title="2024/7/8 下午5:34:33">2024-07-08</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-07-08T09:34:33.000Z" title="2024/7/8 下午5:34:33">2024-07-08</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/07/08/knowledge/math/">数学基础</a></p><div class="content"><h2 id="微积分">微积分</h2>
+<h3 id="求导">求导</h3>
+<h3 id="梯度">梯度</h3>
+<h3 id="偏微分">偏微分</h3>
+<h3 id="积分">积分</h3>
+<h2 id="统计学概率论">统计学，概率论</h2>
+<h3 id="推断统计学和概率论的基本概念">推断统计学和概率论的基本概念</h3>
+<h3 id="高斯分布">高斯分布</h3>
+<h3 id="贝叶斯公式">贝叶斯公式</h3>
+<h3 id="最小二乘法">最小二乘法</h3>
+<h3 id="线性回归">线性回归</h3>
+<h3 id="逻辑回归">逻辑回归</h3>
+<h2 id="线性代数">线性代数</h2>
+<h3 id="向量">向量</h3>
+<h3 id="向量空间">向量空间</h3>
+<h3 id="向量投影">向量投影</h3>
+<h3 id="矩阵运算">矩阵运算</h3>
+<h3 id="特征值分解">特征值分解</h3>
+<h3 id="svd分解">SVD分解</h3>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-07-01T12:43:11.000Z" title="2024/7/1 下午8:43:11">2024-07-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-07-01T12:43:11.000Z" title="2024/7/1 下午8:43:11">2024-07-01</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/07/01/knowledge/semantic-segmentation/">semantic-segmentation</a></p><div class="content"><blockquote>
 <p><a target="_blank" rel="noopener" href="https://developer.baidu.com/article/detail.html?id=3191715">语义分割模型：从
 FCN 到 DeepLab V3+的全面解析</a></p>
 </blockquote>
@@ -327,101 +430,7 @@ Luminance（亮度）、Contrast（对比度）和 Structure（结构）</li>
 <li><code>cv2.morphologyEx()</code>
 开闭运算、形态学梯度、顶帽、黑帽等</li>
 </ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-06-27T03:49:17.000Z" title="2024/6/27 上午11:49:17">2024-06-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-06-27T03:49:17.000Z" title="2024/6/27 上午11:49:17">2024-06-27</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/06/27/knowledge/computer-fundamental/">计算机基础 computer-fundamental</a></p><div class="content"><h2 id="数据库">数据库</h2>
-<p>left join 和 right join、union 是怎么操作的</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-06-26T16:19:57.000Z" title="2024/6/27 上午12:19:57">2024-06-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-06-26T16:19:57.000Z" title="2024/6/27 上午12:19:57">2024-06-27</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/06/27/knowledge/deep-learning/">deep-learning</a></p><div class="content"><blockquote>
-<p><a target="_blank" rel="noopener" href="https://github.com/WeThinkIn/Interview-for-Algorithm-Engineer">【三年面试五年模拟】算法工程师的求职面试秘籍</a></p>
-</blockquote>
-<h2 id="分类-classification">分类 Classification</h2>
-<p>将输入数据划分到预定义的有限标签中，输出为预测的类别标签</p>
-<ul>
-<li><p>常用评价指标</p>
-<ul>
-<li>准确率</li>
-<li>精确率</li>
-<li>召回率</li>
-<li>F1 分数</li>
-</ul></li>
-<li><p>应用</p>
-<ul>
-<li>花卉图像分类</li>
-<li>垃圾邮件拦截</li>
-</ul></li>
-</ul>
-<h2 id="回归-regression">回归 Regression</h2>
-<p>建立数值型随机自变量的模型并进行连续的因变量预测，输出为数值</p>
-<ul>
-<li>常用评价指标
-<ul>
-<li>均方误差</li>
-<li>R2 分数</li>
-</ul></li>
-<li>应用
-<ul>
-<li>股票价格预测</li>
-<li>房价预测</li>
-</ul></li>
-</ul>
-<h2 id="聚类-clustering">聚类 Clustering</h2>
-<p>将无标签的数据分成多个类（簇），确保类内样本相似，类间样本相异，其输出是聚类结果（簇划分，簇标签，簇中心等）</p>
-<ul>
-<li>常用评价指标
-<ul>
-<li>样本紧密度</li>
-<li>样本分隔度</li>
-</ul></li>
-<li>应用
-<ul>
-<li>用户分群</li>
-<li>异常检测</li>
-</ul></li>
-</ul>
-<h2 id="决策-decision-making">决策 Decision making</h2>
-<p>通过神经网络理解给定目标，约束条件和可用信息，预测出最佳或满意的动作决策，其输出是一连串的动作</p>
-<ul>
-<li>常用评价指标
-<ul>
-<li>最终回报</li>
-<li>平均奖励</li>
-</ul></li>
-<li>应用
-<ul>
-<li>游戏 AI</li>
-<li>自动驾驶</li>
-</ul></li>
-</ul>
-<h2 id="概率密度估计-probability-density-estimation">概率密度估计
-Probability density estimation</h2>
-<p>使用深度神经网络来估计一个随机变量或一组随机变量的概率密度函数，其输出是数据的概率分布</p>
-<ul>
-<li>常用评价指标衡量分布差异
-<ul>
-<li>对数似然损失</li>
-<li>KL 散度</li>
-</ul></li>
-<li>应用
-<ul>
-<li>数据生成</li>
-<li>样本采样</li>
-</ul></li>
-</ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-06-26T14:46:03.000Z" title="2024/6/26 下午10:46:03">2024-06-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-06-26T14:46:03.000Z" title="2024/6/26 下午10:46:03">2024-06-26</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/06/26/knowledge/hpc/">hpc</a></p><div class="content"><h2 id="gpu-编程与性能优化">GPU 编程与性能优化</h2>
-<h3 id="cuda-与-cudnn">CUDA 与 cuDNN</h3>
-<h3 id="gpu-编程基本原理">GPU 编程基本原理</h3>
-<p>特别是如何使用 CUDA 进行并行计算，以及 cuDNN
-库在加速深度学习中的应用</p>
-<h3 id="内存管理">内存管理</h3>
-<h3 id="核函数设计">核函数设计</h3>
-<h3 id="性能监控与调优">性能监控与调优</h3>
-<h3 id="性能优化">性能优化</h3>
-<p>掌握一些基本的性能分析工具和方法，比如使用 nvprof 或 TensorFlow
-Profiler 分析模型运行瓶颈，并实施相应的优化措施。</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-06-26T09:11:09.000Z" title="2024/6/26 下午5:11:09">2024-06-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-06-26T09:11:09.000Z" title="2024/6/26 下午5:11:09">2024-06-26</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/06/26/knowledge/machine-learning/">machine-learning</a></p><div class="content"><p>决策树对连续值和离散值特征是否会重复利用作为分割特征 svm
-为什么要转成对偶问题进行求解，为什么对偶问题的解是原问题的解 svm
-如何进行多分类，多分类 hinge loss 什么形式</p>
-<p>随机森林与 GBDT，解释、比较异同、哪种方法单棵决策树的深度更大</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-06-26T09:09:08.000Z" title="2024/6/26 下午5:09:08">2024-06-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-06-26T09:09:08.000Z" title="2024/6/26 下午5:09:08">2024-06-26</time></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/06/26/knowledge/computer-network/">computer-network</a></p><div class="content"><p>http 中的 get、post 区别，是怎么做的</p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/wula.jpg" alt="Derolol"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Derolol</p><p class="is-size-6 is-block">Student</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">27</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">17</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/derolol" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/derolol"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/algorithm/"><span class="level-start"><span class="level-item">algorithm</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/interview/"><span class="level-start"><span class="level-item">interview</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/paper/"><span class="level-start"><span class="level-item">paper</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/source-code/"><span class="level-start"><span class="level-item">source code</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li><li><a class="level is-mobile" href="https://ayyha.github.io/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">AyyHA</span></span><span class="level-right"><span class="level-item tag">ayyha.github.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/CL/"><span class="tag">CL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CVPR2022/"><span class="tag">CVPR2022</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CVPR2023/"><span class="tag">CVPR2023</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GAN/"><span class="tag">GAN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Prototype/"><span class="tag">Prototype</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Transformer/"><span class="tag">Transformer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ZSL/"><span class="tag">ZSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/algorithm/"><span class="tag">algorithm</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/bit-operation/"><span class="tag">bit operation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/code/"><span class="tag">code</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dp/"><span class="tag">dp</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/interview/"><span class="tag">interview</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/leetcode/"><span class="tag">leetcode</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/tags/matrix/"><span class="tag">matrix</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/pytorch/"><span class="tag">pytorch</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/singly-linked-list/"><span class="tag">singly-linked list</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tree/"><span class="tag">tree</span><span class="tag">2</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-01T12:43:11.000Z">2024-07-01</time></p><p class="title"><a href="/2024/07/01/knowledge/semantic-segmentation/">semantic-segmentation</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-01T08:49:55.000Z">2024-07-01</time></p><p class="title"><a href="/2024/07/01/knowledge/python/">python</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-01T01:55:44.000Z">2024-07-01</time></p><p class="title"><a href="/2024/07/01/knowledge/generative-model/">generative-model</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-06-28T02:16:56.000Z">2024-06-28</time></p><p class="title"><a href="/2024/06/28/algorithm/reorganize-string/">reorganize-string</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-06-28T02:10:29.000Z">2024-06-28</time></p><p class="title"><a href="/2024/06/28/knowledge/opencv/">opencv</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Derolol Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 derolol</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li><li><a class="pagination-link" href="/page/4/">4</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/wula.jpg" alt="Derolol"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Derolol</p><p class="is-size-6 is-block">Student</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">32</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">18</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/derolol" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/derolol"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/algorithm/"><span class="level-start"><span class="level-item">algorithm</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/interview/"><span class="level-start"><span class="level-item">interview</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/paper/"><span class="level-start"><span class="level-item">paper</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/source-code/"><span class="level-start"><span class="level-item">source code</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li><li><a class="level is-mobile" href="https://ayyha.github.io/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">AyyHA</span></span><span class="level-right"><span class="level-item tag">ayyha.github.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/CL/"><span class="tag">CL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CVPR2022/"><span class="tag">CVPR2022</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CVPR2023/"><span class="tag">CVPR2023</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GAN/"><span class="tag">GAN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Prototype/"><span class="tag">Prototype</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Transformer/"><span class="tag">Transformer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ZSL/"><span class="tag">ZSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/algorithm/"><span class="tag">algorithm</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/bit-operation/"><span class="tag">bit operation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/code/"><span class="tag">code</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/dp/"><span class="tag">dp</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/interview/"><span class="tag">interview</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/leetcode/"><span class="tag">leetcode</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/matrix/"><span class="tag">matrix</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/pytorch/"><span class="tag">pytorch</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/singly-linked-list/"><span class="tag">singly-linked list</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/suffix-product/"><span class="tag">suffix-product</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tree/"><span class="tag">tree</span><span class="tag">2</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-10T16:19:30.000Z">2024-07-11</time></p><p class="title"><a href="/2024/07/11/algorithm/product-except-self/">leetcode238 除自身以外数组的乘积</a></p><p class="categories"><a href="/categories/algorithm/">algorithm</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-09T02:57:35.000Z">2024-07-09</time></p><p class="title"><a href="/2024/07/09/knowledge/ai-agent/">人工智能代理（Artificial Intelligence Agent）</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-09T02:37:34.000Z">2024-07-09</time></p><p class="title"><a href="/2024/07/09/knowledge/rag/">RAG技术</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-08T09:35:04.000Z">2024-07-08</time></p><p class="title"><a href="/2024/07/08/hexo/basic/">Hexo操作</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-08T09:34:33.000Z">2024-07-08</time></p><p class="title"><a href="/2024/07/08/knowledge/math/">数学基础</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="Derolol Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 derolol</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
