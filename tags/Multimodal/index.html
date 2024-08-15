@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>Tag: Multimodal - Derolol Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Derolol Blog"><meta name="msapplication-TileImage" content="https://raw.githubusercontent.com/derolol/picgo/main/images/logo.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Derolol Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="Derolol Blog"><meta property="og:url" content="https://derolol.github.io/"><meta property="og:site_name" content="Derolol Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://derolol.github.io/img/og_image.png"><meta property="article:author" content="derolol"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://derolol.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://derolol.github.io"},"headline":"Derolol Blog","image":["https://derolol.github.io/img/og_image.png"],"author":{"@type":"Person","name":"derolol"},"publisher":{"@type":"Organization","name":"Derolol Blog","logo":{"@type":"ImageObject","url":"https://raw.githubusercontent.com/derolol/picgo/main/images/head.png"}},"description":""}</script><link rel="icon" href="https://raw.githubusercontent.com/derolol/picgo/main/images/logo.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://raw.githubusercontent.com/derolol/picgo/main/images/head.png" alt="Derolol Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">Tags</a></li><li class="is-active"><a href="#" aria-current="page">Multimodal</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-08-15T07:51:51.000Z" title="2024/8/15 下午3:51:51">2024-08-15</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-08-15T07:51:51.000Z" title="2024/8/15 下午3:51:51">2024-08-15</time></span><span class="level-item"><a class="link-muted" href="/categories/paper/">paper</a></span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2024/08/15/paper/img-diff/">Img-Diff</a></p><div class="content"><ul>
+<li><p>Paper: Img-Diff: Contrastive Data Synthesis for Multimodal Large
+Language Models</p></li>
+<li><p>Authors: Qirui Jiao, Daoyuan Chen, Yilun Huang, Yaliang Li, Ying
+Shen</p></li>
+<li><p>Code &amp; Dataset: <a target="_blank" rel="noopener" href="https://github.com/modelscope/data-juicer/tree/ImgDiff">GitHub</a></p></li>
+<li><p>Application: 提出的组件和端到端构建工作流程在 Data-Juicer
+中作为数据处理算子和可配置文件来实现</p></li>
+</ul>
+<h2 id="专业名词">专业名词</h2>
+<ul>
+<li>Multimodal Large Language Models (MLLMs)</li>
+<li>Visual Question Answering (VQA)</li>
+<li>Image Difference Captioning (IDC)
+专注于图像之间的细微差别而不仅仅是物体描述</li>
+</ul>
+<h2 id="背景">背景</h2>
+<ul>
+<li><p>提升多模态大语言模型的表现通常有两种路径，一种是提升模型架构，另一种则是提升数据质量</p></li>
+<li><p>多数多模态大语言模型进行两阶段训练，第一阶段训练实现图像-文字数据对的模态对齐，第二阶段则注重通过
+Instruction Tuning 数据集微调提升模型的问答能力</p></li>
+<li><p>通过提升图像-文字数据对的数量可以提升模型的语义对齐能力，但有可能影响模型的问答能力，因此更多工作集中于研究
+Instruction Tuning 数据集的增强</p></li>
+<li><p>提出方法与 InstructPix2Pix 类似，采用 Prompt-toPrompt
+技术以及生成模型 Stable-Diffusion-XL
+来生成相似图像对，在生成阶段结合了多个筛选阶段来确保数据质量，强调模型关注特定区域而不是整个图像的差异</p></li>
+</ul>
+<h2 id="数据合成方法">数据合成方法</h2>
+<p>利用对比学习的原理来生成 MLLM
+图像-文本数据。该方法侧重于替换图像对中的对象，引导 MLLM
+识别特定区域的相似性和差异</p>
+<ul>
+<li>Step1.
+创建相似图像并形成图像对，这些图像对之间的唯一区别是图中的对象</li>
+<li>Step2. 提出差异区域生成器（Difference Area
+Generator），提取包含图像对之间的对象差异的边界框</li>
+<li>Step3. 提出差异描述生成器，通过 MLLM
+为具有对象差异的区域生成描述性文本，并创建问答对，例如“该区域中哪些对象发生了变化？”</li>
+</ul>
+<h3 id="过程中应用的大模型">过程中应用的大模型</h3>
+<ul>
+<li><p><strong>LLM Vicuna-1.5-13B</strong> <a target="_blank" rel="noopener" href="https://www.modelscope.cn/models/Xorbits/vicuna-13b-v1.5/summary">魔塔</a></p>
+<p>由 LMSYS 研发的，基于 Llama 2 微调的 Transformer
+架构自回归语言模型</p></li>
+<li><p><strong>Stable-Diffusion-XL</strong> <a target="_blank" rel="noopener" href="https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_xl">Hugging
+Face</a></p>
+<p>由文字生成图像的潜在空间扩散模型：1）UNet 的大小是原来的 3
+倍，引入文本编码器编码器（OpenCLIP ViT
+bigG/14）与原始文本编码器相结合；2）引入大小和裁剪条件，以防止训练数据被丢弃，并更好地控制生成的图像应如何裁剪；3）引入两阶段模型过程，基础模型（也可以作为独立模型运行）生成图像作为优化模型的输入，该模型添加了额外的高质量细节</p></li>
+<li><p><strong>CLIP</strong></p></li>
+<li><p><strong>FastSAM</strong></p></li>
+<li><p><strong>BLIP</strong></p></li>
+<li><p><strong>MLLM LLaVA-NEXT</strong></p></li>
+</ul>
+<h3 id="模块一创建相似数据对">模块一：创建相似数据对</h3>
+<figure>
+<img src="https://raw.githubusercontent.com/derolol/picgo/main/images/20240815173518.png" alt="Image Pairs Generation">
+<figcaption aria-hidden="true">Image Pairs Generation</figcaption>
+</figure>
+<ol type="1">
+<li>从 MS COCO 获取 118K 图像描述</li>
+<li>使用 LLM Vicuna-1.5-13B 替换图像描述中的对象
+<ol type="1">
+<li>输入
+Prompt：“这里有一个句子：‘INPUT’。请仅将这句话中的一个宾语替换为另一个宾语。”</li>
+<li>INPUT 为原始描述，LLM 生成替换后的描</li>
+</ol></li>
+<li>使用生成的描述文本对，利用图像生成模型 Stable-Diffusion-XL
+和图像编辑技术 Prompt-to-Prompt 生成仅替换少量对象的图像对</li>
+</ol>
+<h3 id="模块二差异区域生成器difference-area-generator">模块二：差异区域生成器（Difference
+Area Generator）</h3>
+<p>该模型用于识别图像对之间对象差异的位置
+由于预训练的目标检测模型有检测类别的限制，所以生成器基于分割方法和图像相似度比较识别差异位置，如下图所示</p>
+<figure>
+<img src="https://raw.githubusercontent.com/derolol/picgo/main/images/20240815205219.png" alt="Difference Area Generator">
+<figcaption aria-hidden="true">Difference Area Generator</figcaption>
+</figure>
+<ol type="1">
+<li>通过 Image Similarity Filter 获得相似度高但不完全相同的图像对</li>
+<li>使用 FastSAM 分割每张图像</li>
+<li>根据分割获得的边界框信息裁剪图像，并使用 Image-text Matching Filter
+判断裁剪后的子图像是否存在有效对象</li>
+<li>使用 Difference Detector
+来确定图像对的边界框区域之间是否确实存在差异，并进行 IoU
+过滤以去除重叠的边界框，最终获得有效的边界框信息</li>
+</ol>
+<h4 id="filter1image-similarity-filter">Filter1：Image Similarity
+Filter</h4>
+<p>根据图像相似度过滤图像对</p>
+<ul>
+<li><p><strong>计算流程</strong></p>
+<ul>
+<li>该模块首先使用 CLIP 提取图像特征，然后计算特征间的余弦相似度</li>
+<li>若余弦相似度在预设阈值内，则图像对将被视为有效</li>
+</ul></li>
+<li><p><strong>应用阶段</strong></p>
+<ul>
+<li>在使用 FastSAM
+进行分割之前，使用该模块来确保图像对高度相似但不完全相同</li>
+<li>在 Difference Detector
+阶段，根据边界框信息裁剪子图像后，使用该模块过滤子图像对并仅保留不同的子图像对</li>
+</ul></li>
+</ul>
+<h4 id="filter2image-text-matching-filter">Filter2：Image-text Matching
+Filter</h4>
+<p>确定图像是否包含有效对象（即已替换或正在替换的对象）</p>
+<ul>
+<li><p><strong>计算流程</strong></p>
+<ul>
+<li>该模块首先使用 BLIP
+提取图像特征，然后将其与对象名称的文本特征进行比较</li>
+<li>当图文匹配分数落在预设阈值内时，则认为图像包含有效对象</li>
+</ul></li>
+<li><p><strong>应用阶段</strong></p>
+<ul>
+<li>根据分割信息进行子图像裁剪后，使用该模块来确定子图像是否包含有效对象并获得相应的有效边界框</li>
+</ul></li>
+</ul>
+<h4 id="filter3difference-detector">Filter3：Difference Detector</h4>
+<p>确定图像对的边界框区域之间是否存在差异</p>
+<ul>
+<li><p><strong>计算流程</strong></p>
+<ul>
+<li>根据边界框从图像 A 和 B 中裁剪两个子图像</li>
+<li>通过 Image Similarity Filter
+过滤子图像对，仅当差异足够显著时才认为边界框有效</li>
+<li>处理完所有边界框后，使用 IoU
+方法过滤重叠的边界框，仅保留差异程度较高的边界框，最终输出所有有效边界框</li>
+</ul></li>
+</ul>
+<h3 id="模块三差异描述生成器difference-captions-generator">模块三：差异描述生成器（Difference
+Captions Generator）</h3>
+<p>获得有效的边界框区域后，使用 Difference Captions Generator
+生成有关这些区域内容的差异描述
+图像对可能包含多个差异，而单个描述无法完全捕获所有差异，因此每个描述仅关注一个图像对中的一个边界框</p>
+<p>该模块分为两个阶段，如下图所示</p>
+<figure>
+<img src="https://raw.githubusercontent.com/derolol/picgo/main/images/20240815212955.png" alt="Difference Captions Generator">
+<figcaption aria-hidden="true">Difference Captions
+Generator</figcaption>
+</figure>
+<ol type="1">
+<li>第一阶段，模型为边界框区域生成内容描述，然后使用 Image-text Matching
+Filter 和 Captions Similarity Filter 筛选带内容描述的边界框</li>
+<li>第二阶段，模型使用内容描述和用红框标注的图像生成差异描述</li>
+</ol>
+<h4 id="阶段一对象标注和筛选">阶段一：对象标注和筛选</h4>
+<ul>
+<li>对于每个图像对，首先选择图像之间相似度最低的 N
+个边界框区域（本项目中 N 设置为 5）作为候选区域</li>
+<li>对于每个边界框，我们使用 MLLM LLaVA-NEXT 来描述其相应的区域</li>
+<li>第一个筛选过程，通过 Image-text Matching Filter
+检查区域与描述是否对应</li>
+<li>第二个筛选过程，通过 Captions Similarity Filter
+评估描述之间是否存在差异，使用 CLIP
+来获取文本特征并计算它们之间的余弦相似度，当分数足够低时，可认为两个标题不同</li>
+<li>筛选完成后，获得的有效的边界框和描述将用于后续的差异描述生成</li>
+</ul>
+<h4 id="阶段二差异描述生成">阶段二：差异描述生成</h4>
+<p>对于每个图像对的各个有效边界框生成差异描述</p>
+<ul>
+<li>根据边界框信息在图像中绘制两个红色框，突出显示差异以便于定位</li>
+<li>为 MLLM LLaVA-NEXT
+提供边界框区域的描述，并引导模型根据内容描述和红色框生成差异描述</li>
+</ul>
+</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://raw.githubusercontent.com/derolol/picgo/main/images/avatar.png" alt="Derolol"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Derolol</p><p class="is-size-6 is-block">Student</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">42</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">33</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/derolol" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/derolol"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/algorithm/"><span class="level-start"><span class="level-item">algorithm</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/categories/interview/"><span class="level-start"><span class="level-item">interview</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/paper/"><span class="level-start"><span class="level-item">paper</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/source-code/"><span class="level-start"><span class="level-item">source code</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li><li><a class="level is-mobile" href="https://ayyha.github.io/" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">AyyHA</span></span><span class="level-right"><span class="level-item tag">ayyha.github.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/CL/"><span class="tag">CL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CVPR2022/"><span class="tag">CVPR2022</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CVPR2023/"><span class="tag">CVPR2023</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Data-Synthesis/"><span class="tag">Data Synthesis</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Data-enhancement/"><span class="tag">Data enhancement</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GAN/"><span class="tag">GAN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Multimodal/"><span class="tag">Multimodal</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/NLP/"><span class="tag">NLP</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Prototype/"><span class="tag">Prototype</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Transformer/"><span class="tag">Transformer</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ZSL/"><span class="tag">ZSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/algorithm/"><span class="tag">algorithm</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/code/"><span class="tag">code</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/interview/"><span class="tag">interview</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/leetcode/"><span class="tag">leetcode</span><span class="tag">14</span></a></div><div class="control"><a class="tags has-addons" href="/tags/prompt/"><span class="tag">prompt</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/pytorch/"><span class="tag">pytorch</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tree/"><span class="tag">tree</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BA%8C%E5%88%86%E6%B3%95/"><span class="tag">二分法</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BC%81%E4%B8%9A/"><span class="tag">企业</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"><span class="tag">动态规划</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6/"><span class="tag">区间合并</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"><span class="tag">双指针</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"><span class="tag">哈希表</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%A0%86/"><span class="tag">堆</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"><span class="tag">字符串</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8E%92%E5%BA%8F%E8%BE%85%E5%8A%A9/"><span class="tag">排序辅助</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E5%AD%A6%E6%8E%A8%E7%90%86/"><span class="tag">数学推理</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A0%88/"><span class="tag">栈</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%A0%91/"><span class="tag">树</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><span class="tag">滑动窗口</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%9F%A9%E9%98%B5%E5%A4%84%E7%90%86/"><span class="tag">矩阵处理</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%93%BE%E8%A1%A8/"><span class="tag">链表</span><span class="tag">1</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-15T16:17:31.000Z">2024-08-16</time></p><p class="title"><a href="/2024/08/16/interview/dajiang/">大疆面试复习</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-15T07:51:51.000Z">2024-08-15</time></p><p class="title"><a href="/2024/08/15/paper/img-diff/">Img-Diff</a></p><p class="categories"><a href="/categories/paper/">paper</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-02T18:13:22.000Z">2024-08-03</time></p><p class="title"><a href="/2024/08/03/algorithm/binary-search/">二分法算法题目集合</a></p><p class="categories"><a href="/categories/algorithm/">algorithm</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-01T08:16:38.000Z">2024-08-01</time></p><p class="title"><a href="/2024/08/01/algorithm/heap/">堆题目集合</a></p><p class="categories"><a href="/categories/algorithm/">algorithm</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-01T08:13:06.000Z">2024-08-01</time></p><p class="title"><a href="/2024/08/01/algorithm/string/">字符串题目集合</a></p><p class="categories"><a href="/categories/algorithm/">algorithm</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://raw.githubusercontent.com/derolol/picgo/main/images/head.png" alt="Derolol Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 derolol</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
